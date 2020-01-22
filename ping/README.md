@@ -29,8 +29,8 @@ pingLatency() returns the average latency of 5 pings, or -1 if error.
 To call asynchronously
 
 ```
-  suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
+suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
     ping.pingLatency(host)
-  }
+}
             
 ```
