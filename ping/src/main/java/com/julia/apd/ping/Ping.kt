@@ -3,12 +3,34 @@ package com.julia.apd.ping
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+*  Ping contains functions to ping servers.
+*/
 class Ping  {
 
-    companion object {
-        const val PING_COMMAND = "/system/bin/ping -c 5"
-    }
-
+    /**
+     * Returns average latency in milliseconds based on 5 pings
+     *
+     * @param  host
+     *         url of server to ping.
+     *
+     * @throws  SecurityException
+     *          If a security manager exists and its
+     *          {@link SecurityManager#checkExec checkExec}
+     *          method doesn't allow creation of the subprocess
+     *
+     * @throws  IOException
+     *          If an I/O error occurs
+     *
+     * @throws  NullPointerException
+     *          If <code>command</code> is <code>null</code>
+     *
+     * @throws  IllegalArgumentException
+     *          If <code>command</code> is empty
+     *
+     *
+     * @return  the average latency, or -1F if error
+     */
     fun pingLatency(host: String): Float {
         var averageLatency = -1F
         val command = "$PING_COMMAND $host"
@@ -33,5 +55,9 @@ class Ping  {
         }
         process.destroy()
         return averageLatency
+    }
+
+    companion object {
+        const val PING_COMMAND = "/system/bin/ping -c 5"
     }
 }
