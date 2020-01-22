@@ -1,0 +1,2 @@
+include ':app', ':ping'
+rootProject.name='My Application'
