@@ -31,6 +31,5 @@ To call asynchronously
 ```
 suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
     ping.pingLatency(host)
-}
-            
+}     
 ```
