@@ -88,22 +88,26 @@ val latency = Ping().pingLatency("wwww.samknows.com")
 print("ping:"$latency)
 ```
 
+```
 output:
 ping:11.656
+```
 
 
 #### Exceptions
 
-  @throws  SecurityException
-           If a security manager exists and its
-           {@link SecurityManager#checkExec checkExec}
-           method doesn't allow creation of the subprocess
-           
-           Add to AndroidManifest.xml the following
-           ```
-               <uses-permission android:name="android.permission.INTERNET" />
-           ```
- 
-  @throws  IOException
-           If an I/O error occurs
+```
+@throws  SecurityException
+       If a security manager exists and its
+       {@link SecurityManager#checkExec checkExec}
+       method doesn't allow creation of the subprocess
+       
+       Add to AndroidManifest.xml the following
+       ```
+           <uses-permission android:name="android.permission.INTERNET" />
+       ```
+
+@throws  IOException
+       If an I/O error occurs
      
+```
