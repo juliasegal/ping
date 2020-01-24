@@ -17,7 +17,7 @@ buildscript {
 }
 ```
 
-### Import Library
+### Add Permission
 
 Internet permission is required to ping and test the network.
 
@@ -48,15 +48,15 @@ suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
 
 ### Class Ping
 
-Ping has a function that returns the average network latency based on 5 pings
+Ping class has a function that returns the average network latency based on 5 pings
 
-Create a Ping()
+Create a Ping
 
 ```
 val ping = Ping()    
 ```
 
-### pingLatency(host: String)
+### Function pingLatency
 
 ```
 fun pingLatency(host: String): Float 
@@ -65,9 +65,9 @@ fun pingLatency(host: String): Float
 #### Parameters
 
 
-        @param host: String
-        String with hostname or address of the server to ping.  For example: wwww.samknows.com, 
-        pingLatency
+@param host: String
+        
+String with hostname or address of the server to ping.  For example: wwww.samknows.com, pingLatency
 
 ```
 val latency: Float = pingLatency.pingLatency("wwww.samknows.com")
@@ -77,26 +77,33 @@ val latency: Float = pingLatency.pingLatency("178.79.128.50")
 
 #### Return
 
-        @return Float
+@return Float
 
-        Returns average latency over 5 pings in milliseconds onSuccess().
-        If there is an error, -1 is returned.  Check if host name is correct
+Returns average latency over 5 pings in milliseconds onSuccess().
+If there is an error, -1 is returned.  Check if host name is correct
         
-        For example 
-        Ping().pingLatency("wwww.samknows.com")
+For example 
+```
+val latency = Ping().pingLatency("wwww.samknows.com")
+print("ping:"$latency)
+```
+
+output:
+ping:11.656
+
 
 #### Exceptions
 
-      @throws  SecurityException
-               If a security manager exists and its
-               {@link SecurityManager#checkExec checkExec}
-               method doesn't allow creation of the subprocess
-               
-               Add to AndroidManifest.xml the following
-               ```
-                   <uses-permission android:name="android.permission.INTERNET" />
-               ```
-     
-      @throws  IOException
-               If an I/O error occurs
+  @throws  SecurityException
+           If a security manager exists and its
+           {@link SecurityManager#checkExec checkExec}
+           method doesn't allow creation of the subprocess
+           
+           Add to AndroidManifest.xml the following
+           ```
+               <uses-permission android:name="android.permission.INTERNET" />
+           ```
+ 
+  @throws  IOException
+           If an I/O error occurs
      
