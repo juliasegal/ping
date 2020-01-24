@@ -12,7 +12,7 @@ class Ping  {
      * Returns average latency in milliseconds based on 5 pings
      *
      * @param  host
-     *         url of server to ping.
+     *         hostname or address server to ping.
      *
      * @throws  SecurityException
      *          If a security manager exists and its
@@ -21,12 +21,6 @@ class Ping  {
      *
      * @throws  IOException
      *          If an I/O error occurs
-     *
-     * @throws  NullPointerException
-     *          If <code>command</code> is <code>null</code>
-     *
-     * @throws  IllegalArgumentException
-     *          If <code>command</code> is empty
      *
      *
      * @return  the average latency, or -1F if error

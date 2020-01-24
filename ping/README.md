@@ -17,6 +17,16 @@ buildscript {
 }
 ```
 
+### Import Library
+
+Internet permission is required to ping and test the network.
+
+Add permission to AndroidManifest.xml
+
+```
+    <uses-permission android:name="android.permission.INTERNET" />
+```
+
 ## Usage
 
 ```
@@ -33,3 +43,52 @@ suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
     Ping().pingLatency(host)
 }     
 ```
+
+## API
+
+### Class Ping
+
+Ping contains a function to get average network latency based on 5 pings
+
+Create a Ping()
+
+```
+val ping = Ping()    
+```
+
+### pingLatency(host: String)
+
+```
+fun pingLatency(host: String): Float 
+```
+
+#### @param host
+
+The hostname or address of the server to ping.  For example: wwww.samknows.com, 
+pingLatency
+```
+pingLatency.pingLatency("wwww.samknows.com")
+
+pingLatency.pingLatency("178.79.128.50") 
+```
+
+#### @return Float
+
+Returns average latency over 5 pings in milliseconds onSuccess().
+If there is an error, -1 is returned.  Check if host name is correct
+
+#### Exceptions
+
+      @throws  SecurityException
+               If a security manager exists and its
+               {@link SecurityManager#checkExec checkExec}
+               method doesn't allow creation of the subprocess
+               
+               Add to AndroidManifest.xml the following
+               ```
+                   <uses-permission android:name="android.permission.INTERNET" />
+               ```
+     
+      @throws  IOException
+               If an I/O error occurs
+     
