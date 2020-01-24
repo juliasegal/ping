@@ -48,7 +48,7 @@ suspend fun pingAsync(host: String) = withContext(Dispatchers.IO) {
 
 ### Class Ping
 
-Ping contains a function to get average network latency based on 5 pings
+Ping has a function that returns the average network latency based on 5 pings
 
 Create a Ping()
 
@@ -62,20 +62,28 @@ val ping = Ping()
 fun pingLatency(host: String): Float 
 ```
 
-#### @param host
+#### Parameters
 
-The hostname or address of the server to ping.  For example: wwww.samknows.com, 
-pingLatency
+
+        @param host: String
+        String with hostname or address of the server to ping.  For example: wwww.samknows.com, 
+        pingLatency
+
 ```
-pingLatency.pingLatency("wwww.samknows.com")
+val latency: Float = pingLatency.pingLatency("wwww.samknows.com")
 
-pingLatency.pingLatency("178.79.128.50") 
+val latency: Float = pingLatency.pingLatency("178.79.128.50") 
 ```
 
-#### @return Float
+#### Return
 
-Returns average latency over 5 pings in milliseconds onSuccess().
-If there is an error, -1 is returned.  Check if host name is correct
+        @return Float
+
+        Returns average latency over 5 pings in milliseconds onSuccess().
+        If there is an error, -1 is returned.  Check if host name is correct
+        
+        For example 
+        Ping().pingLatency("wwww.samknows.com")
 
 #### Exceptions
 
